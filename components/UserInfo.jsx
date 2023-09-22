@@ -38,7 +38,7 @@ export default function UserInfo() {
                         <AvatarFallback>CN</AvatarFallback>
                     </Avatar>
                 </HoverCardTrigger>
-                <HoverCardContent className="w-80 shadow-xl shadow-red-500/50">
+                <HoverCardContent className="w-80 shadow-xl rounded-xl shadow-red-500/50">
                     <div className="flex justify-between space-x-4">
                         <Avatar>
                             <AvatarImage src="https://github.com/vercel.png" />
