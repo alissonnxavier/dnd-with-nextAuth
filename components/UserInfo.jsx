@@ -28,9 +28,7 @@ export default function UserInfo() {
     }, [setName, setEmail, session?.user?.name, session?.user?.email]);
 
     return (
-        <div className="flex justify-end m-4">
-
-
+        <div className="">
             <HoverCard>
                 <HoverCardTrigger asChild>
                     <Avatar>
