@@ -2,10 +2,9 @@ import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import Image from 'next/image';
 
-function DropZone(props) {
+const DropZone = (props) => {
 
     const [base64, setBase64] = useState('');
-    const [preview, setPreview] = useState('');
 
     const handleDrop = useCallback((files) => {
         const file = files[0];
@@ -16,7 +15,6 @@ function DropZone(props) {
         }
 
         const result = reader.readAsDataURL(file);
-        setPreview(result);
     }, [])
 
     const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
@@ -46,14 +44,14 @@ function DropZone(props) {
                 <p>Drag 'n' drop some files here, or click to select files</p>
             </div>
             <aside>
-                {base64 === ''? '': <h4 className='text-sky-500 mt-5'>Image droped</h4>}
+                {base64 === '' ? '' : <h4 className='text-sky-500 mt-5'>Image droped</h4>}
                 <ul>{files}</ul>
-                <ul>
+                <ul className='flex justify-center m-6'>
                     {base64 === '' ? '' :
                         <Image
                             src={base64}
-                            height={100}
-                            width={100}
+                            height={200}
+                            width={200}
                             alt='uploaded image'
                         />}
                 </ul>

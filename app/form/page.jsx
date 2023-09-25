@@ -1,19 +1,23 @@
 import FormExample from '@/components/FormExample'
+import Navbar from '@/components/Navbar'
 import React from 'react'
 
 const page = () => {
     return (
-        <div 
-        className='
+        <>
+            <Navbar />
+            <div
+                className='
             flex 
             w-full
-            h-screen
+            mt-52
             items-center 
             justify-center
             align-middle
         '>
-            <FormExample />
-        </div>
+                <FormExample />
+            </div>
+        </>
     )
 }
 

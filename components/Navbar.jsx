@@ -62,7 +62,7 @@ const Navbar = () => {
                         <NavigationMenuItem>
                             <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
                             <NavigationMenuContent>
-                                <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                                <ul className="bg-slate-100 grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                                     <li className="row-span-3">
                                         <NavigationMenuLink asChild>
                                             <a
@@ -89,7 +89,7 @@ const Navbar = () => {
                             <NavigationMenuTrigger>Components</NavigationMenuTrigger>
 
                             <NavigationMenuContent >
-                                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                                <ul className=" bg-slate-100 grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                                     {components.map((component) => (
                                         <p key={component.title}>
                                             {component.description}
@@ -99,9 +99,27 @@ const Navbar = () => {
                             </NavigationMenuContent>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                            <Link href='/form'>Form</Link>
+                            <Link
+                                href='/form'
+                                className="
+                                mr-4
+                                hover:text-indigo-600
+                            "
+                            >
+                                Form
+                            </Link>
                         </NavigationMenuItem>
-
+                        <NavigationMenuItem>
+                            <Link
+                                href='/cards'
+                                className="
+                                mr-4
+                                hover:text-indigo-600
+                            "
+                            >
+                                Cards
+                            </Link>
+                        </NavigationMenuItem>
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>

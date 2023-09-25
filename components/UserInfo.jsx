@@ -29,14 +29,14 @@ export default function UserInfo() {
 
     return (
         <div className="">
-            <HoverCard>
+            <HoverCard >
                 <HoverCardTrigger asChild>
                     <Avatar>
                         <AvatarImage src="https://github.com/shadcn.png" />
                         <AvatarFallback>CN</AvatarFallback>
                     </Avatar>
                 </HoverCardTrigger>
-                <HoverCardContent className="w-80 shadow-xl rounded-xl shadow-red-500/50">
+                <HoverCardContent className="w-80 shadow-xl rounded-xl shadow-red-500/50 m-6">
                     <div className="flex justify-between space-x-4">
                         <Avatar>
                             <AvatarImage src="https://github.com/vercel.png" />
