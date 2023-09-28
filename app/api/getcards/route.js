@@ -4,18 +4,15 @@ import { NextResponse, NextRequest } from 'next/server';
 
 
 
-export async function GET(req) {
-    try {
-        await connectMongoDB();
-        let res = await Form.find();
+export async function POST(req) {
+    
+        const db = await connectMongoDB();
+        const collection = Form;
+        let res = await collection.find({});
         
-
-        return NextResponse.json({ data: res });
-    } catch (error) {
-        console.log(error);
-        return NextResponse.json({
-            data: 'Any data returned',
-        })
-    }
-
+        let changeStream = collection.watch();
+        changeStream.on('change', next=>{console.log(next)});
+        
+        return NextResponse.json({ data: res });  
+    
 } 

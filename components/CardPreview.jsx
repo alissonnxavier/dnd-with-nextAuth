@@ -1,23 +1,16 @@
 "use client"
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import axios from "axios";
-import { Button } from "./ui/button";
-import { useEffect, useState, FormEvent, EventHandler } from "react";
+
 import GetCards from '@/components/helpers/GetCards';
 import { RingLoader } from 'react-spinners';
+import MiniCard from '@/components/MiniCard';
 
 const CardPreview = () => {
 
-  let cards = GetCards();
-  console.log(cards.length);
+  let cards = [];
+  cards = GetCards();
+  console.log(cards.data);
+  console.log('tamanho', cards.length);
   if (cards.length == 0) {
     return (
       <div className="flex justify-center items-center mt-40">
@@ -28,13 +21,14 @@ const CardPreview = () => {
 
   return (
     <>
-
-      <div >
-
+      <div className='w-4/5 flex flex-wrap justify-center items-center  '>
         {cards?.data?.data?.map((card) => (
           <div key={card._id}>
-            <p>{card.title}</p>
-            <p>{card.id}</p>
+            <MiniCard 
+              title={card?.title}
+              description={card?.description}
+              image={card?.image}
+            />
           </div>
         ))}
       </div>

@@ -7,14 +7,15 @@ export default function GetCards() {
 
     async function request() {
 
-        useEffect(()=>{
-            let res = axios.get('api/getcards', {
+        useEffect(() => {
+            let res = axios.post('api/getcards', {
                 message: 'hi everyone'
             }).then((response) => { setCards(response) })
-        },[setCards]);
- 
+        }, [setCards]);
+
     }
 
     request();
     return cards;
 }
+

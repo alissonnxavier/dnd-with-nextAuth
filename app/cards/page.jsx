@@ -6,7 +6,9 @@ const page = () => {
     return (
         <>
             <Navbar />
-            <CardPreview />
+            <div className='flex justify-center'>
+                <CardPreview />
+            </div>
         </>
     )
 }
