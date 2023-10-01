@@ -15,17 +15,22 @@ const FormExample = () => {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [base64, setBase64] = useState('');
+    const [base64, setBase64] = useState([]);
 
     const handleDrop = useCallback((files) => {
-        const file = files[0];
-        const reader = new FileReader();
-
-        reader.onload = (e) => {
-            setBase64(e.target.result);
+        let i = 0;
+        let images = [];
+        while (i < files.length) {
+            const reader = new FileReader();
+            const file = files[i];
+            reader.onload = (e) => {
+                images.push(e.target.result);
+            }
+            i++
+            reader.readAsDataURL(file);
         }
+        setBase64(images);
 
-        const result = reader.readAsDataURL(file);
     }, [])
 
     const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
@@ -103,16 +108,29 @@ const FormExample = () => {
                     {base64 === '' ? '' : <h4 className='text-sky-500 mt-5'>Image droped</h4>}
                     <ul>{files}</ul>
                     <ul className='flex justify-center m-6'>
-                        {base64 === '' ? '' :
-                            <Image
-                                src={base64}
-                                height={200}
-                                width={200}
-                                alt='uploaded image'
-                            />}
+                        {base64.length === 0 ? '' :
+                            base64.map((image, index) => (
+                                <div 
+                                key={index}
+                                className="flex"
+                                >
+                                    <Image
+                                        className="p-1"
+                                        key={index}
+                                        src={image}
+                                        height={200}
+                                        width={200}
+                                        alt='uploaded image'
+                                    />
+                                </div>
+                            ))
+
+                        }
                     </ul>
                 </aside>
             </section>
+
+            {/*     */}
 
             <Button
                 onClick={handleSubmit}
