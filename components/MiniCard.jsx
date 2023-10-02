@@ -12,9 +12,11 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import CardStack from '@/components/cardmotion';
 
 
-export default function MiniCard({ title, description, image }) {
+export default function MiniCard({ title, description, images }) {
+
   return (
     <Card className="w-48 m-2">
       <CardHeader>
@@ -22,12 +24,9 @@ export default function MiniCard({ title, description, image }) {
         <CardDescription className='w-28 overflow-hidden'>{description}.</CardDescription>
       </CardHeader>
       <CardContent>
-        <Image
-          src={image}
-          height={200}
-          width={200}
-          alt='Card image'
-        />
+        <div >
+          <CardStack />
+        </div>
       </CardContent>
       <CardFooter className="flex justify-between">
         <Button variant="outline">Cancel</Button>

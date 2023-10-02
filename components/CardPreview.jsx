@@ -9,8 +9,6 @@ const CardPreview = () => {
 
   let cards = [];
   cards = GetCards();
-  console.log(cards.data);
-  console.log('tamanho', cards.length);
   if (cards.length == 0) {
     return (
       <div className="flex justify-center items-center mt-40">
@@ -27,7 +25,7 @@ const CardPreview = () => {
             <MiniCard 
               title={card?.title}
               description={card?.description}
-              image={card?.image}
+              images={card?.image}
             />
           </div>
         ))}
